@@ -1,0 +1,29 @@
+name: publish
+
+# Publishes to npm when a GitHub release is published (tag vX.Y.Z).
+# Uses npm trusted publishing (OIDC), so no npm token or OTP is stored here.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+      - name: Tag matches package.json
+        run: |
+          v=$(node -p "require('./package.json').version")
+          [ "${GITHUB_REF_NAME}" = "v$v" ] || { echo "tag ${GITHUB_REF_NAME} != v$v"; exit 1; }
+      - run: npm ci
+      - run: npm test
+      - run: npm publish --access public

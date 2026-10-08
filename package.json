@@ -1,6 +1,6 @@
 {
   "name": "demoloom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn a scripted Playwright flow into a polished product demo video: drawn cursor, auto-zoom camera, sped-up idle time, captions, voiceover and music, in 16:9 and 9:16, with deterministic frames.",
   "license": "MIT",
   "author": "Yossif Nassar",
