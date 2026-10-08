@@ -1,0 +1,178 @@
+{
+ "sr": 44100,
+ "license": "CC0-1.0",
+ "instruments": {
+  "piano": {
+   "desc": "Steinway B grand, close mics, medium velocity, sustain pedal",
+   "set": "VCSL",
+   "pitched": true,
+   "notes": [
+    {
+     "midi": 36,
+     "files": [
+      "piano_C2.flac"
+     ]
+    },
+    {
+     "midi": 40,
+     "files": [
+      "piano_E2.flac"
+     ]
+    },
+    {
+     "midi": 44,
+     "files": [
+      "piano_Gs2.flac"
+     ]
+    },
+    {
+     "midi": 48,
+     "files": [
+      "piano_C3.flac"
+     ]
+    },
+    {
+     "midi": 52,
+     "files": [
+      "piano_E3.flac"
+     ]
+    },
+    {
+     "midi": 56,
+     "files": [
+      "piano_Gs3.flac"
+     ]
+    },
+    {
+     "midi": 60,
+     "files": [
+      "piano_C4.flac"
+     ]
+    },
+    {
+     "midi": 64,
+     "files": [
+      "piano_E4.flac"
+     ]
+    },
+    {
+     "midi": 68,
+     "files": [
+      "piano_Gs4.flac"
+     ]
+    },
+    {
+     "midi": 72,
+     "files": [
+      "piano_C5.flac"
+     ]
+    },
+    {
+     "midi": 76,
+     "files": [
+      "piano_E5.flac"
+     ]
+    },
+    {
+     "midi": 80,
+     "files": [
+      "piano_Gs5.flac"
+     ]
+    },
+    {
+     "midi": 84,
+     "files": [
+      "piano_C6.flac"
+     ]
+    }
+   ],
+   "sources": [
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C2_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_E2_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#2_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C3_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_E3_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#3_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C4_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_E4_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#4_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C5_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_E5_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_G#5_vl3_rr1.wav",
+    "VCSL/Chordophones/Zithers/Grand Piano, Steinway B/Sus/JHPiano_Sus_Close_C6_vl3_rr1.wav"
+   ]
+  },
+  "vibes": {
+   "desc": "Vibraphone, soft mallets, motor off (the celesta stand-in: no CC0 celesta exists in these sets)",
+   "set": "VCSL",
+   "pitched": true,
+   "notes": [
+    {
+     "midi": 60,
+     "files": [
+      "vibes_C4.flac"
+     ]
+    },
+    {
+     "midi": 64,
+     "files": [
+      "vibes_E4.flac"
+     ]
+    },
+    {
+     "midi": 67,
+     "files": [
+      "vibes_G4.flac"
+     ]
+    },
+    {
+     "midi": 71,
+     "files": [
+      "vibes_B4.flac"
+     ]
+    },
+    {
+     "midi": 74,
+     "files": [
+      "vibes_D5.flac"
+     ]
+    },
+    {
+     "midi": 77,
+     "files": [
+      "vibes_F5.flac"
+     ]
+    },
+    {
+     "midi": 81,
+     "files": [
+      "vibes_A5.flac"
+     ]
+    },
+    {
+     "midi": 84,
+     "files": [
+      "vibes_C6.flac"
+     ]
+    },
+    {
+     "midi": 88,
+     "files": [
+      "vibes_E6.flac"
+     ]
+    }
+   ],
+   "sources": [
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C3_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_E3_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_G3_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_B3_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_D4_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_F4_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_A4_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_C5_v2_rr1_Main.wav",
+    "VCSL/Idiophones/Struck Idiophones/Vibraphone/Soft Mallets/Vibes_soft_E5_v2_rr1_Main.wav"
+   ]
+  }
+ }
+}

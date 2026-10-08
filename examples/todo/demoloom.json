@@ -1,0 +1,25 @@
+{
+  "theme": {
+    "extends": "default",
+    "endCard": { "title": "Tiny Board", "url": "Made with demoloom", "cta": "Try the example" }
+  },
+  "narrative": {
+    "title": "Plan your week in three clicks",
+    "subtitle": "A demoloom example",
+    "beatTitles": { "add": "Add a task", "start": "Start it", "finish": "Finish it" },
+    "captions": true,
+    "vo": [
+      { "id": "title", "at": "title", "say": "Here is a tiny board, start to finish." },
+      { "id": "add", "beat": "add", "say": "Type a task, and add it to the board." },
+      { "id": "start", "beat": "start", "say": "One click moves it into progress." },
+      { "id": "finish", "beat": "finish", "say": "Finish it, and the board syncs by itself." },
+      { "id": "outro", "at": "end", "say": "Make your own with demo loom.", "caption": "Make your own | with {demo loom=demoloom}" }
+    ]
+  },
+  "voice": { "provider": "none" },
+  "music": { "palette": "glass" },
+  "camera": { "zoom": [1.35, 1.6] },
+  "events": {
+    "synced": { "zoom": false }
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>demoloom</title>
+<style>
+  html, body { margin: 0; background: #000; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// index.html?shape=landscape|vertical, served by `demoloom render`. Scripts load
+// in order: the timeline (with the resolved theme), the motion maths, the compositor.
+(function () {
+  const srcs = ['/out/timeline.js', '/src/motion.cjs', '/page/compositor.js'];
+  const next = () => {
+    const s = srcs.shift(); if (!s) return;
+    const el = document.createElement('script'); el.src = s; el.onload = next;
+    el.onerror = () => { throw new Error('could not load ' + s); };
+    document.body.appendChild(el);
+  };
+  next();
+})();
+</script>
+</body>
+</html>

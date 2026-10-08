@@ -1,0 +1,21 @@
+{
+  "description": "An example of a customised brand: warm light backdrop with a dot grid, coral accent, a logo and a left-aligned title.",
+  "backdrop": { "style": "dots", "from": "#FFFBF5", "to": "#FDEBD8", "glow": "#F97316", "grain": true },
+  "accent": "#EA580C",
+  "accentInk": "#FFFFFF",
+  "ink": "#1C1917",
+  "muted": "#78716C",
+  "halo": "#FFFBF5",
+  "window": {
+    "bar": "#FFFFFF",
+    "dots": "#F5E6D8",
+    "pill": "#FAF5F0",
+    "urlText": "#8A7F78",
+    "radius": 22,
+    "shadow": "rgba(124,45,18,0.22)"
+  },
+  "fonts": { "display": "DM Sans", "ui": "DM Sans" },
+  "logo": "logo.svg",
+  "titleLayout": "left",
+  "endCard": { "title": "Tiny Board", "url": "board.example.com", "cta": "Try it free" }
+}

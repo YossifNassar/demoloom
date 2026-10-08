@@ -1,0 +1,21 @@
+{
+  "name": "demoloom",
+  "version": "0.1.0",
+  "description": "Turn a scripted Playwright flow into a polished product demo video: drawn cursor, auto-zoom camera, sped-up idle time, captions, voiceover and music, in 16:9 and 9:16, with deterministic frames.",
+  "private": true,
+  "license": "MIT",
+  "author": "Yossif Nassar",
+  "type": "module",
+  "bin": { "demoloom": "bin/demoloom.mjs" },
+  "files": ["bin", "src", "page", "assets", "samples", "themes", "examples/todo/app.html", "examples/todo/flow.mjs", "examples/todo/demoloom.json", "LICENSE", "THIRD_PARTY.md", "README.md"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/",
+    "example:record": "node bin/demoloom.mjs record examples/todo/flow.mjs",
+    "example:render": "node bin/demoloom.mjs render examples/todo --shape=both"
+  },
+  "keywords": ["demo", "video", "playwright", "screencast", "product-demo", "screen-recording"],
+  "dependencies": {
+    "playwright": "^1.56.0"
+  }
+}

@@ -1,0 +1,23 @@
+Sample library for demoloom's built-in music palettes (src/score/score.mjs).
+
+Every file in this folder is CC0 1.0 Universal (public domain dedication):
+commercial use allowed, no attribution required.
+
+Source: VCSL, the Versilian Community Sample Library, by Versilian Studios
+        https://github.com/sgossner/VCSL
+        LICENSE: CC0 1.0 Universal
+        https://github.com/sgossner/VCSL/blob/master/LICENSE
+
+Instrument   Files            VCSL folder
+piano        piano_*.flac     Chordophones/Zithers/Grand Piano, Steinway B/Sus
+vibes        vibes_*.flac     Idiophones/Struck Idiophones/Vibraphone/Soft Mallets
+
+Each file was trimmed, converted to mono 44.1 kHz 16-bit FLAC, levelled and
+renamed to its sounding pitch. index.json lists the original VCSL path of every
+file.
+
+Every other sound in the palettes (pads, plucks, bells, marimba, drums, clicks)
+is synthesized in code at render time, so it carries the project's MIT licence.
+
+Rule for this folder: CC0 only. Do not add anything CC BY, CC BY-NC, "free for
+personal use" or of unclear origin.

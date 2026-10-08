@@ -1,0 +1,21 @@
+{
+  "description": "Neutral and modern: a slate to indigo gradient, white window, indigo accents.",
+  "backdrop": { "style": "gradient", "from": "#0F172A", "to": "#312E81", "glow": "#6366F1", "grain": true },
+  "accent": "#818CF8",
+  "accentInk": "#FFFFFF",
+  "ink": "#F8FAFC",
+  "muted": "#CBD5E1",
+  "halo": "#0F172A",
+  "window": {
+    "bar": "#FFFFFF",
+    "dots": "#E2E8F0",
+    "pill": "#F1F5F9",
+    "urlText": "#64748B",
+    "radius": 18,
+    "shadow": "rgba(2,6,23,0.55)"
+  },
+  "fonts": { "display": "Bricolage Grotesque", "ui": "DM Sans" },
+  "logo": null,
+  "titleLayout": "stack",
+  "endCard": { "title": null, "url": null, "cta": null }
+}

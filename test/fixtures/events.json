@@ -1,0 +1,157 @@
+{
+ "viewport": {
+  "width": 1440,
+  "height": 900,
+  "dpr": 2
+ },
+ "url": "http://localhost:4173/app.html",
+ "events": [
+  {
+   "t": 1.57,
+   "type": "click",
+   "x": 295,
+   "y": 121,
+   "box": {
+    "x": 32,
+    "y": 97,
+    "w": 526,
+    "h": 48
+   },
+   "text": "",
+   "label": "task title field"
+  },
+  {
+   "t": 2.19,
+   "t1": 3.85,
+   "type": "type",
+   "x": 295,
+   "y": 121,
+   "box": {
+    "x": 32,
+    "y": 97,
+    "w": 526,
+    "h": 48
+   },
+   "text": "Write the launch post",
+   "label": "task title"
+  },
+  {
+   "t": 4.72,
+   "type": "click",
+   "x": 620,
+   "y": 121,
+   "box": {
+    "x": 568,
+    "y": 97,
+    "w": 104,
+    "h": 48
+   },
+   "text": "",
+   "label": "add task"
+  },
+  {
+   "t": 5.34,
+   "type": "appear",
+   "x": 255,
+   "y": 473,
+   "box": {
+    "x": 46,
+    "y": 426,
+    "w": 417,
+    "h": 93
+   },
+   "text": "",
+   "label": "new card"
+  },
+  {
+   "t": 9.09,
+   "type": "click",
+   "x": 420,
+   "y": 488,
+   "box": {
+    "x": 391,
+    "y": 472,
+    "w": 58,
+    "h": 32
+   },
+   "text": "",
+   "label": "start"
+  },
+  {
+   "t": 9.69,
+   "type": "appear",
+   "x": 720,
+   "y": 369,
+   "box": {
+    "x": 511,
+    "y": 323,
+    "w": 417,
+    "h": 93
+   },
+   "text": "",
+   "label": "in progress"
+  },
+  {
+   "t": 13.44,
+   "type": "click",
+   "x": 884,
+   "y": 385,
+   "box": {
+    "x": 855,
+    "y": 369,
+    "w": 59,
+    "h": 32
+   },
+   "text": "",
+   "label": "finish"
+  },
+  {
+   "t": 14.04,
+   "type": "appear",
+   "x": 1185,
+   "y": 352,
+   "box": {
+    "x": 977,
+    "y": 311,
+    "w": 417,
+    "h": 82
+   },
+   "text": "",
+   "label": "done card"
+  },
+  {
+   "t": 16.25,
+   "type": "appear",
+   "x": 1311,
+   "y": 34,
+   "box": {
+    "x": 1260,
+    "y": 19,
+    "w": 102,
+    "h": 30
+   },
+   "text": "",
+   "label": "synced"
+  }
+ ],
+ "beats": [
+  {
+   "id": "add",
+   "t0": 1.1,
+   "t1": 8.64,
+   "note": ""
+  },
+  {
+   "id": "start",
+   "t0": 8.64,
+   "t1": 12.99,
+   "note": ""
+  },
+  {
+   "id": "finish",
+   "t0": 12.99,
+   "t1": 18.76,
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+node_modules/
+# render output (frames, voice, stills, videos)
+out/
+# raw recordings and their logs: regenerate with `demoloom record`
+raw.mp4
+examples/*/events.json
+*.log
+.DS_Store
