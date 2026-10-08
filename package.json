@@ -26,7 +26,7 @@
     "node": ">=20"
   },
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.test.mjs",
     "example:record": "node bin/demoloom.mjs record examples/todo/flow.mjs",
     "example:render": "node bin/demoloom.mjs render examples/todo --shape=both"
   },
