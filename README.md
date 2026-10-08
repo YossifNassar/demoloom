@@ -287,7 +287,10 @@ gcloud services enable texttospeech.googleapis.com
 
 At render time demoloom runs `gcloud auth print-access-token` and calls the
 Cloud Text-to-Speech API with the Gemini TTS model. `direction` is a style
-prompt for the whole video; `direct` on a line adds to it.
+prompt for the whole video; `direct` on a line adds to it. The default
+direction is a calm, unhurried product-demo narrator whose lines settle on a
+falling finish; keep per-line notes soft too ("easy and relaxed" works better
+than "urgent" or "punchy").
 
 **Caption timing.** If [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
 is installed (`pip install faster-whisper`), demoloom transcribes each line to get
