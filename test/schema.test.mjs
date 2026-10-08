@@ -45,3 +45,25 @@ test('config: problems are reported', () => {
   const { warnings } = normalizeConfig({ colour: 'red' }, '.');
   assert.ok(warnings[0].includes('unknown key'));
 });
+
+test('an appear with no position is a timing marker', () => {
+  const j = structuredClone(flow);
+  j.events.push({ t: 1, type: 'appear', label: 'request sent' });
+  assert.deepEqual(validateEvents(j), []);
+  j.events.push({ t: 2, type: 'appear', x: 10, label: 'half a position' });
+  assert.ok(validateEvents(j).some((e) => e.includes('needs x and y')));
+  const click = structuredClone(flow);
+  click.events.push({ t: 1, type: 'click', label: 'no position' });
+  assert.ok(validateEvents(click).some((e) => e.includes('(click) needs x and y')), 'only appear can be a marker');
+});
+
+test('config: a theme can set the voice, and the flow overrides it', () => {
+  const theme = { voice: { provider: 'say', voice: 'Samantha', rate: 160 } };
+  assert.deepEqual(normalizeConfig({ theme }, '.').config.voice, { provider: 'say', voice: 'Samantha', rate: 160 });
+  const own = normalizeConfig({ theme, voice: { rate: 190 } }, '.').config.voice;
+  assert.equal(own.provider, 'say');
+  assert.equal(own.rate, 190);
+  assert.equal(normalizeConfig({ theme, voice: { provider: 'none' } }, '.').config.voice.provider, 'none');
+  assert.equal(normalizeConfig({}, '.').config.voice.provider, 'none', 'no theme voice keeps the default');
+  assert.throws(() => normalizeConfig({ theme: { voice: 'Sulafat' } }, '.'), /theme.voice/);
+});

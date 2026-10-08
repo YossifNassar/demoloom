@@ -113,7 +113,10 @@ Anything that writes this file can feed `render`, not only `record`:
 ```
 
 Types: `click`, `type`, `select`, `scroll`, `hover`, `navigate`, `appear`. Times
-are seconds from the first frame of `raw.mp4`; positions are CSS pixels.
+are seconds from the first frame of `raw.mp4`; positions are CSS pixels. An
+`appear` with no `x`, `y` or `box` is a timing marker: real time is kept around
+it and it can be a `music.turn`, but the camera and the rings ignore it unless an
+`events` override gives it a `box`.
 Optional: `t1` on a `type` (last key), `t0` and `from: [x, y]` on a `select`
 (drag start). `render` validates the file before it starts.
 
@@ -183,14 +186,16 @@ theme file resolve next to it.
 
 | key | meaning |
 |---|---|
-| `backdrop` | `{ style: gradient\|glow\|dots\|solid, from, to, glow, grain }` |
-| `accent`, `accentInk` | rings, ripples, caption highlight, step markers; text on accent |
+| `backdrop` | `{ style: gradient\|glow\|dots\|solid, from, to, glow, dots, grain }`; `dots` colours the dot grid (default: `glow`, then `accent`) |
+| `accent`, `accentInk` | caption highlight, step markers, the call to action; text on accent |
+| `emphasis` | rings and click ripples (default: `accent`); a lighter tint of the accent often reads better on the recording |
 | `ink`, `muted`, `halo` | text on the backdrop, secondary text, the outline around captions |
 | `window` | `{ bar, dots, pill, urlText, radius, shadow }`: the browser window |
 | `fonts` | `{ display, ui, files: { "Family": "path.ttf" } }`; Bricolage Grotesque and DM Sans ship with demoloom, and any installed system font works by name |
 | `logo` | a PNG or SVG shown on the title and end cards |
 | `titleLayout` | `stack` (centred) or `left` (left aligned, with an accent rule) |
 | `endCard` | `{ title, url, cta }`: the closing card (title defaults to `narrative.title`) |
+| `voice` | default voice settings for every flow that uses the theme (a house narrator); the flow's own `voice` keys win |
 
 The `default` theme is a slate to indigo gradient with a white window.
 `themes/example-brand/` shows a customised brand: a warm light backdrop with a
@@ -247,7 +252,8 @@ Idle stretches play at `min` to `max` times (default 2 to 4), with eased ramps.
 Per-event overrides, keyed by label (or index): `zoom` (a number forces that
 zoom, `false` keeps the camera off it), `emphasis` (`true` adds a ring, `false`
 removes the one every `appear` gets), `lead` (seconds) and `box` (a tighter box
-for the camera and ring). `extraEvents` adds events the log lacks.
+for the camera and ring). `extraEvents` adds events the log lacks; they are
+checked with the same rules as `events.json`.
 
 ### music
 

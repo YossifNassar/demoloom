@@ -36,6 +36,10 @@ export async function render(dir, opts = {}) {
   if (errs.length) throw new Error('events.json:\n  ' + errs.join('\n  '));
   const { config: cfg, warnings } = loadConfig(FLOW, { theme: opts.theme, voice: opts.voice });
   for (const w of warnings) console.warn('demoloom.json: ' + w);
+  if (cfg.extraEvents.length) {
+    const xe = validateEvents({ viewport: flow.viewport, events: cfg.extraEvents });
+    if (xe.length) throw new Error('demoloom.json extraEvents:\n  ' + xe.join('\n  '));
+  }
   const rawDur = +sh('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', join(FLOW, 'raw.mp4')]).trim();
 
   // ---------- frames: raw.mp4 decoded once to 30 fps JPEGs (frame i = time i/30) ----------
@@ -76,9 +80,10 @@ export async function render(dir, opts = {}) {
   };
   const faces = [...new Set([cfg.theme.fonts.display, cfg.theme.fonts.ui])].map(faceFor).filter(Boolean);
   const urlText = cfg.window.url ?? (() => { try { const u = new URL(flow.url); return /^https?:$/.test(u.protocol) ? u.host : ''; } catch { return ''; } })();
+  const { voice: _themeVoice, ...pageTheme } = cfg.theme;
   const TL = {
     ...P,
-    theme: { ...cfg.theme, logo: undefined, logoUrl: cfg.theme.logo ? `/logo${extname(cfg.theme.logo)}` : null, fontFaces: faces },
+    theme: { ...pageTheme, logo: undefined, logoUrl: cfg.theme.logo ? `/logo${extname(cfg.theme.logo)}` : null, fontFaces: faces },
     narrative: { title: cfg.narrative.title, subtitle: cfg.narrative.subtitle, beatTitles: cfg.narrative.beatTitles, captions: cfg.narrative.captions, steps: cfg.narrative.steps },
     view: { chrome: cfg.window.chrome !== false, urlBar: cfg.window.urlBar !== false && !!urlText, url: urlText },
     camera: cfg.camera, eventOpts: cfg.events,
