@@ -11,7 +11,9 @@
 //
 // Times are seconds from the first frame of raw.mp4; positions are CSS px.
 // Optional event extras: t0 on a select (drag start), from: [x, y] on a select
-// (drag start point), t1 on a type (last key).
+// (drag start point), t1 on a type (last key). An appear with no x, y or box is
+// a timing marker: it keeps real time around it (and can be a music turn) but
+// the camera and the rings ignore it, unless demoloom.json gives it a box.
 
 export const EVENT_TYPES = ['click', 'type', 'select', 'scroll', 'hover', 'navigate', 'appear'];
 
@@ -33,7 +35,8 @@ export function validateEvents(j) {
     if (!EVENT_TYPES.includes(e.type)) errs.push(`${at}.type must be one of ${EVENT_TYPES.join(', ')}`);
     if (e.x !== undefined && !num(e.x)) errs.push(`${at}.x must be a number`);
     if (e.y !== undefined && !num(e.y)) errs.push(`${at}.y must be a number`);
-    if (['click', 'type', 'select', 'hover', 'appear'].includes(e.type)) {
+    const marker = e.type === 'appear' && e.x === undefined && e.y === undefined && e.box === undefined;
+    if (['click', 'type', 'select', 'hover', 'appear'].includes(e.type) && !marker) {
       if (!num(e.x) || !num(e.y)) errs.push(`${at} (${e.type}) needs x and y`);
       const b = e.box;
       if (!b || !num(b.x) || !num(b.y) || !num(b.w) || !num(b.h) || b.w < 0 || b.h < 0) errs.push(`${at} (${e.type}) needs a box {x, y, w, h}`);

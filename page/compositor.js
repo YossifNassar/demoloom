@@ -32,6 +32,7 @@ function rgbOf(c) { // any CSS colour -> [r, g, b, a]
 const rgba = (c, a) => { const [r, g, b, a0] = rgbOf(c); return `rgba(${r},${g},${b},${a0 * a})`; };
 const mix = (a, b, p) => { const A = rgbOf(a), B = rgbOf(b); return `rgba(${A.map((v, i) => (i < 3 ? Math.round(lerp(v, B[i], clamp01(p))) : lerp(v, B[i], clamp01(p)))).join(',')})`; };
 const ACC = TH.accent, ACC_INK = TH.accentInk, INK = TH.ink, MUTED = TH.muted, HALO = TH.halo;
+const EMPH = TH.emphasis || ACC; // rings and click ripples; often a lighter tint of the accent
 const fam = (f) => (/^(system-ui|sans-serif|serif|monospace|ui-\w+)$/.test(f) ? f : `'${f}'`);
 const DISPLAY = `${fam(TH.fonts.display)}, system-ui, sans-serif`;
 const UI = `${fam(TH.fonts.ui)}, system-ui, sans-serif`;
@@ -87,7 +88,7 @@ function paintBackdrop() {
     b.fillStyle = r2; b.fillRect(0, 0, W, H);
   }
   if (bd.style === 'dots') { // a soft dot grid, strongest around the window
-    const step = SHAPE === 'landscape' ? 28 : 30, R = Math.max(W, H) * 0.75, dot = bd.glow || ACC;
+    const step = SHAPE === 'landscape' ? 28 : 30, R = Math.max(W, H) * 0.75, dot = bd.dots || bd.glow || ACC;
     for (let y = step / 2; y < H; y += step) for (let x = step / 2; x < W; x += step) {
       const k = Math.max(0, 1 - Math.hypot(x - wx, y - wy) / R);
       if (k <= 0.02) continue;
@@ -128,9 +129,9 @@ function drawRing(c, cam, r, t) {
   const [x0, y0] = MO.toLayer(cam, [r.e.box.x - pad, r.e.box.y - pad]);
   const w = (r.e.box.w + 2 * pad) * s, h = (r.e.box.h + 2 * pad) * s, rad = Math.min(14, h / 2);
   c.save();
-  c.globalAlpha = env * 0.1; c.fillStyle = ACC; rr(c, x0, y0, w, h, rad); c.fill();
-  c.globalAlpha = env; c.shadowColor = rgba(ACC, 0.85); c.shadowBlur = 14;
-  c.strokeStyle = ACC; c.lineWidth = 3.5; rr(c, x0, y0, w, h, rad); c.stroke();
+  c.globalAlpha = env * 0.1; c.fillStyle = EMPH; rr(c, x0, y0, w, h, rad); c.fill();
+  c.globalAlpha = env; c.shadowColor = rgba(EMPH, 0.85); c.shadowBlur = 14;
+  c.strokeStyle = EMPH; c.lineWidth = 3.5; rr(c, x0, y0, w, h, rad); c.stroke();
   c.shadowColor = 'transparent';
   for (const d of [0.05, 0.6]) { // two soft pulses spreading out
     const q = seg(k, d, d + 0.9);
@@ -147,10 +148,10 @@ function drawRipples(c, cam, t) {
     if (k < 0 || k > 0.6) continue;
     const q = k / 0.6, [x, y] = MO.toLayer(cam, [s.x, s.y]), sc = MO.cursorScale(cam.z) / 1.6;
     c.save();
-    c.globalAlpha = 0.32 * (1 - q); c.fillStyle = ACC;
+    c.globalAlpha = 0.32 * (1 - q); c.fillStyle = EMPH;
     c.beginPath(); c.arc(x, y, lerp(6, 24, eout(q)) * sc, 0, 7); c.fill();
-    c.globalAlpha = 1 - q; c.shadowColor = rgba(ACC, 0.9); c.shadowBlur = 10;
-    c.strokeStyle = ACC; c.lineWidth = 4 * (1 - 0.5 * q);
+    c.globalAlpha = 1 - q; c.shadowColor = rgba(EMPH, 0.9); c.shadowBlur = 10;
+    c.strokeStyle = EMPH; c.lineWidth = 4 * (1 - 0.5 * q);
     c.beginPath(); c.arc(x, y, lerp(8, 38, eout(q)) * sc, 0, 7); c.stroke();
     c.shadowColor = 'transparent'; c.globalAlpha = 0.9 * (1 - q); c.strokeStyle = '#FFFFFF'; c.lineWidth = 1.5 * (1 - 0.5 * q);
     c.beginPath(); c.arc(x, y, lerp(8, 38, eout(q)) * sc - 2.5, 0, 7); c.stroke();

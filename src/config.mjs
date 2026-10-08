@@ -73,11 +73,14 @@ export function normalizeConfig(raw, baseDir) {
   const c = {};
   for (const k of Object.keys(DEFAULTS)) c[k] = merge(DEFAULTS[k], raw[k]);
   c.theme = resolveTheme(raw.theme, baseDir);
+  // a theme may carry a house narrator; the flow's own "voice" settings win
+  if (isObj(c.theme.voice)) c.voice = merge(merge(DEFAULTS.voice, c.theme.voice), raw.voice);
 
   // theme
   const th = c.theme;
   if (!BACKDROPS.includes(th.backdrop?.style)) errs.push(`theme.backdrop.style must be one of ${BACKDROPS.join(', ')}`);
   if (th.logo && !existsSync(th.logo)) errs.push(`theme.logo ${th.logo} does not exist`);
+  if (th.voice !== undefined && th.voice !== null && !isObj(th.voice)) errs.push('theme.voice must be an object of voice settings');
   if (!['stack', 'left'].includes(th.titleLayout)) errs.push('theme.titleLayout must be "stack" or "left"');
   for (const [fam, file] of Object.entries(th.fonts?.files || {})) if (!existsSync(file)) errs.push(`font file for "${fam}" (${file}) does not exist`);
 
