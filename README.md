@@ -17,7 +17,7 @@ The full example with sound: [docs/preview.mp4](docs/preview.mp4).
 You need Node 20+ and ffmpeg.
 
 ```
-npm install --save-dev github:YossifNassar/demoloom
+npm install --save-dev demoloom
 npx playwright install chromium
 brew install ffmpeg          # macOS; on Linux: apt-get install ffmpeg
 ```
