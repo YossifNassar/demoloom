@@ -340,3 +340,7 @@ OFL). Samples: VCSL by Versilian Studios (CC0). Built on Playwright and ffmpeg.
 ## License
 
 MIT, see [LICENSE](LICENSE).
+
+## Releasing
+
+Bump `version` in `package.json` in a PR and merge it. Then publish a GitHub release tagged `v<version>` (for example `gh release create v0.1.1 --generate-notes`). The `publish` workflow tests and publishes to npm through npm trusted publishing, so no token or OTP is needed.
